@@ -1,27 +1,27 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import BackgroundScene from './components/BackgroundScene';
-import HtmlContent from './components/HtmlContent';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
+import Portfolio from './components/Portfolio';
+import Process from './components/Process';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
-      {/* 3D Background - Fixed behind content */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1 }}>
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          gl={{ antialias: true, alpha: true }}
-        >
-          <Suspense fallback={null}>
-            <BackgroundScene />
-          </Suspense>
-        </Canvas>
-      </div>
-
-      {/* Native Scrolling HTML Content */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <HtmlContent />
-      </div>
+    <div className="relative bg-[var(--color-brand-cream)] min-h-screen text-[var(--color-brand-black)] selection:bg-[var(--color-brand-orange)] selection:text-white">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Portfolio />
+        <Process />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
